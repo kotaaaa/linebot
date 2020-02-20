@@ -1,4 +1,4 @@
 #!/usr/local/bin/python
 from wsgiref.handlers import CGIHandler
-from testFlask import app
+from app import app
 CGIHandler().run(app)
