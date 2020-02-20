@@ -1,4 +1,4 @@
-#!~/myenv/bin/python python3
+#!/usr/local/bin/python
 print("Content-type: text/html\n")
 from wsgiref.handlers import CGIHandler
 from app import app
