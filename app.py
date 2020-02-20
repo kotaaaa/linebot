@@ -1,5 +1,5 @@
 #!~/myenv/bin/python
-
+print("Content-type: text/html\n")
 from flask import Flask, request, abort
 
 from linebot import (
