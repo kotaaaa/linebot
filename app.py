@@ -1,6 +1,6 @@
 #!/usr/local/bin/python
 print "Content-type: text/html\n"
-print "hello world cgi"
+print "hello world app"
 
 from flask import Flask, request, abort
 
