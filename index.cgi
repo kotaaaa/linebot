@@ -1,4 +1,4 @@
-#!~/myenv/bin/python
+#!~/myenv/bin/python python3
 
 from wsgiref.handlers import CGIHandler
 from app import app
