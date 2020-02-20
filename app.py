@@ -1,3 +1,5 @@
+#!~/myenv/bin/python
+
 from flask import Flask, request, abort
 
 from linebot import (
