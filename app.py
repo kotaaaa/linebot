@@ -1,3 +1,7 @@
+#!/usr/local/bin/python
+print "Content-type: text/html\n"
+print "hello world cgi"
+
 from flask import Flask, request, abort
 
 from linebot import (
