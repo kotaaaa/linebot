@@ -1,4 +1,4 @@
-#!~/myenv/bin/python
+#!~/myenv/bin/python python3
 print("Content-type: text/html\n")
 from flask import Flask, request, abort
 
