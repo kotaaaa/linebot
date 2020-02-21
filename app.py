@@ -1,7 +1,4 @@
 #!/home/kk1110/.local/share/virtualenvs/linebot-nxOg-56M/bin/python3.8
-import sys
-print(sys.path)
-import flask
 
 from flask import Flask, request, abort
 
@@ -14,7 +11,6 @@ from linebot.exceptions import (
 from linebot.models import (
     MessageEvent, TextMessage, TextSendMessage,
 )
-print('a')
 
 app = Flask(__name__)
 
