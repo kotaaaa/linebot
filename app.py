@@ -4,15 +4,16 @@ print(sys.path)
 import flask
 print('a')
 
-from flask import Flask, request, abort
+# from flask import Flask, request, abort
+import flask import Flask, request, abort
 
-from linebot import (
+import linebot import (
     LineBotApi, WebhookHandler
 )
-from linebot.exceptions import (
+import linebot.exceptions import (
     InvalidSignatureError
 )
-from linebot.models import (
+import linebot.models import (
     MessageEvent, TextMessage, TextSendMessage,
 )
 
