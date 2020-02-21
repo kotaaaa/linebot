@@ -1,8 +1,6 @@
 #!/home/kk1110/.local/share/virtualenvs/linebot-nxOg-56M/bin/python3.8
-import os
-
-print('getcwd:      ', os.getcwd())
-print('__file__:    ', __file__)
+import sys
+print(sys.path)
 
 from flask import Flask, request, abort
 
