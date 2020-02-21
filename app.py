@@ -2,7 +2,6 @@
 import sys
 print(sys.path)
 import flask
-print('a')
 
 from flask import Flask, request, abort
 
@@ -15,6 +14,7 @@ from linebot.exceptions import (
 from linebot.models import (
     MessageEvent, TextMessage, TextSendMessage,
 )
+print('a')
 
 app = Flask(__name__)
 
