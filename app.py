@@ -1,4 +1,6 @@
 #!/home/kk1110/.local/share/virtualenvs/linebot-nxOg-56M/bin/python3.8
+print("Content-type: text/html\n")
+print("hello world app")
 
 from flask import Flask, request, abort
 
