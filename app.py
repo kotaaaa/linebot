@@ -34,6 +34,7 @@ def callback():
     body = request.get_data(as_text=True)
     app.logger.info("Request body: " + body)
 
+    #ログをテキストファイルに保存
     with open("dev_log/log", mode='a',encoding="utf-8") as f:
         f.write(str(body)+'\n')
     # handle webhook body
