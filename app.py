@@ -33,10 +33,13 @@ logger.error('logging.error.')
 logger.critical('logging.critical.')
 #ログ出力関係ここまで
 
+import json
+
 app = Flask(__name__)
 
 line_bot_api = LineBotApi('HmZrbJbUT+ZnBiwX5uLG8cuKg1Qo3d99+EjRPPjPCVHk1/HgDwMNR45vdJvCaIgxWmOMDnQT9z+AA9eGoKR+/vkZxGqJdZyeExDoVlreubQ73bbUfZeUpEz/AbHJqbZY/bEsXhwVMCAeiiCy15ylSgdB04t89/1O/w1cDnyilFU=')#YOUR_CHANNEL_ACCESS_TOKEN
 handler = WebhookHandler('549900161624cd875236a62d28e567a6')#YOUR_CHANNEL_SECRET
+
 
 @app.route("/")
 def hello_world():
@@ -57,9 +60,10 @@ def callback():
 
     #ログをテキストファイルに保存
     with open("dev_log/log1", mode='a',encoding="utf-8") as f:
-        # f.write(str(body["events"]["message"]["text"])+'\n')
+        body = json.loads(body)
+        f.write(str(body["events"]["message"]["text"])+'\n')
         # f.write(str(body["events"])+'\n')
-        f.write(str(type(body)))
+        # f.write(str(type(body)))
     # handle webhook body
     try:
         handler.handle(body, signature)
