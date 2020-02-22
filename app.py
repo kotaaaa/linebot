@@ -61,10 +61,7 @@ def callback():
     #ログをテキストファイルに保存
     with open("dev_log/log1", mode='a',encoding="utf-8") as f:
         body_ = json.loads(body)
-        # f.write(str(body["events"]["message"]["text"])+'\n')
-        # f.write(str(body)+'\n')
-        f.write(str(body_["events"][0]["message"]["text"])+'\n')
-        # f.write(str(type(body)))
+        f.write(str(body_["events"][0]["message"]["text"])+'\n')#とりあえず，これで，printする形にする．
     # handle webhook body
     try:
         handler.handle(body, signature)
