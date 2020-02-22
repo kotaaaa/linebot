@@ -26,12 +26,12 @@ formatter = logging.Formatter('%(asctime)s %(levelname)s %(filename)s %(lineno)d
 fh.setFormatter(formatter)
 
 logger.addHandler(fh)
-
 logger.debug('logging.debug.')
 logger.info('logging.info.')
 logger.warning('logging.warning.')
 logger.error('logging.error.')
 logger.critical('logging.critical.')
+#ログ出力関係ここまで
 
 app = Flask(__name__)
 
@@ -57,7 +57,7 @@ def callback():
 
     #ログをテキストファイルに保存
     with open("dev_log/log1", mode='a',encoding="utf-8") as f:
-        f.write(str(body.message.text)+'\n')
+        f.write(str(body["events"]["message"]["text"])+'\n')
     # handle webhook body
     try:
         handler.handle(body, signature)
