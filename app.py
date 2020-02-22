@@ -12,6 +12,27 @@ from linebot.models import (
     MessageEvent, TextMessage, TextSendMessage,
 )
 
+import logging
+
+logger = logging.getLogger(__name__)
+logger.setLevel(logging.DEBUG)
+
+# ファイルハンドラ
+fh = logging.FileHandler('advance_logging.log')
+fh.setLevel(logging.DEBUG)
+
+# フォーマット
+formatter = logging.Formatter('%(asctime)s %(levelname)s %(filename)s %(lineno)d %(message)s')
+fh.setFormatter(formatter)
+
+logger.addHandler(fh)
+
+logger.debug('logging.debug.')
+logger.info('logging.info.')
+logger.warning('logging.warning.')
+logger.error('logging.error.')
+logger.critical('logging.critical.')
+
 app = Flask(__name__)
 
 line_bot_api = LineBotApi('HmZrbJbUT+ZnBiwX5uLG8cuKg1Qo3d99+EjRPPjPCVHk1/HgDwMNR45vdJvCaIgxWmOMDnQT9z+AA9eGoKR+/vkZxGqJdZyeExDoVlreubQ73bbUfZeUpEz/AbHJqbZY/bEsXhwVMCAeiiCy15ylSgdB04t89/1O/w1cDnyilFU=')#YOUR_CHANNEL_ACCESS_TOKEN
