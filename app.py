@@ -37,11 +37,13 @@ import json
 import os
 
 app = Flask(__name__)
+app.config.from_json('development.json', True)
 
 f= open("dev_log/log1", mode='a',encoding="utf-8")
-f.write(str(os.environ.get('LINECHANNELACCESSTOKEN'))+'\n1')
-for env in os.environ:
-    f.write(str(env)+'\n2')
+# f.write(str(os.environ.get('LINECHANNELACCESSTOKEN'))+'1\n')
+f.write(str(LINECHANNELACCESSTOKEN)+'1\n')
+# for env in os.environ:
+#     f.write(str(env)+'2\n')
 
 line_bot_api = LineBotApi('HmZrbJbUT+ZnBiwX5uLG8cuKg1Qo3d99+EjRPPjPCVHk1/HgDwMNR45vdJvCaIgxWmOMDnQT9z+AA9eGoKR+/vkZxGqJdZyeExDoVlreubQ73bbUfZeUpEz/AbHJqbZY/bEsXhwVMCAeiiCy15ylSgdB04t89/1O/w1cDnyilFU=')#YOUR_CHANNEL_ACCESS_TOKEN
 handler = WebhookHandler('549900161624cd875236a62d28e567a6')#YOUR_CHANNEL_SECRET
