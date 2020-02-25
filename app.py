@@ -46,7 +46,7 @@ f.write(str(app.config['LINECHANNELACCESSTOKEN'])+'1\n')
 #     f.write(str(env)+'2\n')
 
 line_bot_api = LineBotApi(app.config['LINECHANNELACCESSTOKEN'])#YOUR_CHANNEL_ACCESS_TOKEN
-handler = WebhookHandler(app.config['LINECHANNELACCESSTOKEN'])#YOUR_CHANNEL_SECRET
+handler = WebhookHandler(app.config['LINECHANNELSECRET'])#YOUR_CHANNEL_SECRET
 
 
 @app.route("/")
