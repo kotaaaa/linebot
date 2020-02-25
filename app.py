@@ -1,5 +1,4 @@
 #!/home/kk1110/.local/share/virtualenvs/linebot-nxOg-56M/bin/python3.8
-
 from flask import Flask, request, abort
 
 from linebot import (
@@ -34,6 +33,7 @@ logger.critical('logging.critical.')
 #ログ出力関係ここまで
 
 import json
+import os
 
 app = Flask(__name__)
 
