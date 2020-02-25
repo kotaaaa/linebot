@@ -173,3 +173,13 @@
 2020-02-25 14:48:15,011 WARNING app.py 31 logging.warning.
 2020-02-25 14:48:15,011 ERROR app.py 32 logging.error.
 2020-02-25 14:48:15,011 CRITICAL app.py 33 logging.critical.
+2020-02-25 14:50:33,859 DEBUG app.py 29 logging.debug.
+2020-02-25 14:50:33,860 INFO app.py 30 logging.info.
+2020-02-25 14:50:33,860 WARNING app.py 31 logging.warning.
+2020-02-25 14:50:33,860 ERROR app.py 32 logging.error.
+2020-02-25 14:50:33,860 CRITICAL app.py 33 logging.critical.
+2020-02-25 14:50:34,306 DEBUG app.py 29 logging.debug.
+2020-02-25 14:50:34,306 INFO app.py 30 logging.info.
+2020-02-25 14:50:34,306 WARNING app.py 31 logging.warning.
+2020-02-25 14:50:34,306 ERROR app.py 32 logging.error.
+2020-02-25 14:50:34,306 CRITICAL app.py 33 logging.critical.

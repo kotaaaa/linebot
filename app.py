@@ -45,8 +45,8 @@ f.write(str(app.config['LINECHANNELACCESSTOKEN'])+'1\n')
 # for env in os.environ:
 #     f.write(str(env)+'2\n')
 
-line_bot_api = LineBotApi('HmZrbJbUT+ZnBiwX5uLG8cuKg1Qo3d99+EjRPPjPCVHk1/HgDwMNR45vdJvCaIgxWmOMDnQT9z+AA9eGoKR+/vkZxGqJdZyeExDoVlreubQ73bbUfZeUpEz/AbHJqbZY/bEsXhwVMCAeiiCy15ylSgdB04t89/1O/w1cDnyilFU=')#YOUR_CHANNEL_ACCESS_TOKEN
-handler = WebhookHandler('549900161624cd875236a62d28e567a6')#YOUR_CHANNEL_SECRET
+line_bot_api = LineBotApi(app.config['LINECHANNELACCESSTOKEN'])#YOUR_CHANNEL_ACCESS_TOKEN
+handler = WebhookHandler(app.config['LINECHANNELACCESSTOKEN'])#YOUR_CHANNEL_SECRET
 
 
 @app.route("/")
