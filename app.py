@@ -1,4 +1,5 @@
 #!/home/kk1110/.local/share/virtualenvs/linebot-nxOg-56M/bin/python3.8
+# coding:utf-8
 from flask import Flask, request, abort
 
 from linebot import (
