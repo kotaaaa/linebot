@@ -41,7 +41,7 @@ app.config.from_json('development.json', True)
 
 f= open("dev_log/log1", mode='a',encoding="utf-8")
 # f.write(str(os.environ.get('LINECHANNELACCESSTOKEN'))+'1\n')
-f.write(str(LINECHANNELACCESSTOKEN)+'1\n')
+f.write(str(app.config['LINECHANNELACCESSTOKEN'])+'1\n')
 # for env in os.environ:
 #     f.write(str(env)+'2\n')
 
