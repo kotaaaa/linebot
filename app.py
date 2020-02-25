@@ -78,7 +78,7 @@ def callback():
 def handle_message(event):
     tobuy_lists = split(event.message.text,'\n')
     for tobuy_list in tobuy_lists:
-        f.write(str(tobuy_list,file=sys.stderr)+'\n')
+        f.write(str(tobuy_list)+'\n')
         line_bot_api.reply_message(
             event.reply_token,
             TextSendMessage(text=tobuy_lists))
