@@ -81,7 +81,10 @@ def handle_message(event):
         f.write(str(tobuy_list)+'\n')
         line_bot_api.reply_message(
             event.reply_token,
-            TextSendMessage(text=tobuy_list))
+            [
+            TextSendMessage(text=tobuy_list),
+            TextSendMessage(text=tobuy_list)
+            ])
 
 if __name__ == "__main__":
     app.run(debug = True)
