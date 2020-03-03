@@ -85,13 +85,14 @@ def handle_message(event):
 
         db_text_save(send_sql)
 
-        latest_todo_lists = u"select * from itemTable where user_id = '"+event.source.user_id+"' and todo_flg = 1;"
-        f.write(str(latest_todo_lists)+'\n')
-
+        select_sql = u"select item from itemTable where user_id = '"+event.source.user_id+"' and todo_flg = 1;"
+        latest_todos_lists = db_text_select(select_sql)
+        latest_todos = '\n'.join(latest_todos_lists)
+        f.write(latest_todos+'\n')
         line_bot_api.reply_message(
             event.reply_token,
             [
-            TextSendMessage(text=latest_todo_lists),
+            TextSendMessage(text=latest_todos),
             # TextSendMessage(text=tobuy_list)
             ])
 
@@ -107,13 +108,19 @@ def getConnection():
 def db_text_save(sql):
     connector = getConnection()
     cursor = connector.cursor()
-    # sql = u"insert into testTable values('2','java')"
     cursor.execute(sql)
     connector.commit()
     cursor.close()
     connector.close()
-    # return "DB saved!"
 
+def db_text_select(sql):
+    connector = getConnection()
+    cursor = connector.cursor()
+    cursor.execute(sql)
+    text = cursor.fetchall()
+    cursor.close()
+    connector.close()
+    return text
 
 @app.route('/db')
 def db_save():
