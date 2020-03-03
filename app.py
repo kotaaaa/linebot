@@ -87,8 +87,9 @@ def handle_message(event):
 
         select_sql = u"select item from itemTable where user_id = '"+event.source.user_id+"' and todo_flg = 1;"
         latest_todos_lists = db_text_select(select_sql)
+        f.write('a: '+latest_todos_lists+'\n')
         latest_todos = '\n'.join(latest_todos_lists)
-        f.write(latest_todos+'\n')
+        f.write('b: '+latest_todos+'\n')
         line_bot_api.reply_message(
             event.reply_token,
             [
