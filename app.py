@@ -35,6 +35,7 @@ logger.critical('logging.critical.')
 
 import json
 import os
+import mysql.connector
 
 app = Flask(__name__)
 app.config.from_json('development.json', True)
@@ -73,7 +74,6 @@ def callback():
 
     return 'OK'
 
-
 @handler.add(MessageEvent, message=TextMessage)
 def handle_message(event):
     tobuy_lists = event.message.text.split('\n')
@@ -86,18 +86,20 @@ def handle_message(event):
             TextSendMessage(text=tobuy_list)
             ])
 
-import mysql.connector
-@app.route('/db')
-def db_save():
-    connector = mysql.connector.connect(
+def getConnection():
+    return mysql.connector.connect(
             host="mysql8078.xserver.jp",
             db="kk1110_linebot",
             user="kk1110_userlbot",
             passwd="Kota0108",
             charset="utf8"
             )
+
+@app.route('/db')
+def db_save():
+    connector = getConnection()
     cursor = connector.cursor()
-    sql = u"insert into testTable values('1','python')"
+    sql = u"insert into testTable values('2','java')"
     cursor.execute(sql)
     connector.commit()
     cursor.close()
