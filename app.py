@@ -81,8 +81,8 @@ def handle_message(event):
         f.write(str(tobuy_list)+'\n')
         # f.write(str(event["source"])+'\n')
         f.write(str(event.source)+'\n')
-        f.write(str(event.source["userId"])+'\n')
-        send_sql = u"insert into testTable values('"+"5"+"','"+event.source["userId"]+"')"
+        f.write(str(event.source.userId)+'\n')
+        send_sql = u"insert into testTable values('"+"5"+"','"+event.source.userId+"')"
         db_text_save(send_sql)
         line_bot_api.reply_message(
             event.reply_token,
