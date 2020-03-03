@@ -89,6 +89,7 @@ def handle_message(event):
         select_sql = u"select item from itemTable"
         latest_todos_lists = db_text_select(select_sql)
         f.write('a: '+str(len(latest_todos_lists))+'\n')
+        latest_todos_lists = [str(i) for i in latest_todos_lists]
         latest_todos = '\n'.join(latest_todos_lists)
         f.write('b: '+str(latest_todos)+'\n')
         line_bot_api.reply_message(
