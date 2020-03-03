@@ -82,7 +82,10 @@ def handle_message(event):
         # f.write(str(event["source"])+'\n')
         f.write(str(event.source)+'\n')
         f.write(str(event.source.user_id)+'\n')
-        send_sql = u"insert into itemTable(user_id,item,todo_flg) values('"+event.source.user_id+"','"+tobuy_list+"','1')"
+        # send_sql = u"insert into itemTable(user_id,item,todo_flg) values('"+event.source.user_id+"','"+tobuy_list+"','1')"
+        send_sql =
+        u"INSERT INTO itemTable(user_id, item, todo_flg) VALUES('"+event.source.user_id+"','"+tobuy_list+"','1') ON DUPLICATE KEY UPDATE user_id = '"+event.source.user_id+"',item = '"+tobuy_list+"', todo_flg = 0"
+
         db_text_save(send_sql)
         line_bot_api.reply_message(
             event.reply_token,
