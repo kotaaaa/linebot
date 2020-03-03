@@ -79,6 +79,8 @@ def handle_message(event):
     tobuy_lists = event.message.text.split('\n')
     for tobuy_list in tobuy_lists:
         f.write(str(tobuy_list)+'\n')
+        send_sql = u"insert into testTable values('"+"3"+"','"+tobuy_list+"')"
+        db_text_save(send_sql)
         line_bot_api.reply_message(
             event.reply_token,
             [
@@ -94,6 +96,17 @@ def getConnection():
             passwd="Kota0108",
             charset="utf8"
             )
+
+def db_text_save(sql):
+    connector = getConnection()
+    cursor = connector.cursor()
+    # sql = u"insert into testTable values('2','java')"
+    cursor.execute(sql)
+    connector.commit()
+    cursor.close()
+    connector.close()
+    # return "DB saved!"
+
 
 @app.route('/db')
 def db_save():
