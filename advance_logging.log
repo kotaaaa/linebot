@@ -341,3 +341,13 @@ Traceback (most recent call last):
   File "/Users/kotakawaguchi/.pyenv/versions/3.6.1/envs/kaggle/lib/python3.6/site-packages/mysql/connector/network.py", line 512, in open_connection
     errno=2003, values=(self.get_address(), _strioerror(err)))
 mysql.connector.errors.InterfaceError: 2003: Can't connect to MySQL server on 'mysql8078.xserver.jp:3306' (60 Operation timed out)
+2020-03-03 15:35:43,717 DEBUG app.py 29 logging.debug.
+2020-03-03 15:35:43,718 INFO app.py 30 logging.info.
+2020-03-03 15:35:43,718 WARNING app.py 31 logging.warning.
+2020-03-03 15:35:43,718 ERROR app.py 32 logging.error.
+2020-03-03 15:35:43,719 CRITICAL app.py 33 logging.critical.
+2020-03-03 15:36:07,985 DEBUG app.py 29 logging.debug.
+2020-03-03 15:36:07,985 INFO app.py 30 logging.info.
+2020-03-03 15:36:07,985 WARNING app.py 31 logging.warning.
+2020-03-03 15:36:07,985 ERROR app.py 32 logging.error.
+2020-03-03 15:36:07,986 CRITICAL app.py 33 logging.critical.
