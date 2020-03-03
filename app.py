@@ -82,7 +82,7 @@ def handle_message(event):
         # f.write(str(event["source"])+'\n')
         f.write(str(event.source)+'\n')
         f.write(str(event.source.user_id)+'\n')
-        send_sql = u"insert into testTable values('"+"5"+"','"+event.source.user_id+"')"
+        send_sql = u"insert into itemTable values('"+event.source.user_id+"','"+event.message.text+"','1')"
         db_text_save(send_sql)
         line_bot_api.reply_message(
             event.reply_token,
