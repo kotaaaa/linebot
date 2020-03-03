@@ -86,5 +86,24 @@ def handle_message(event):
             TextSendMessage(text=tobuy_list)
             ])
 
+import mysql.connector
+@app.route('/db')
+def db_save():
+    connector = mysql.connector.connect(
+            host="mysql8078.xserver.jp",
+            db="kk1110_linebot",
+            user="kk1110_userlbot",
+            passwd="Kota0108",
+            charset="utf8"
+            )
+    cursor = connector.cursor()
+    sql = u"insert into testTable values('1','python')"
+    cursor.execute(sql)
+    connector.commit()
+    cursor.close()
+    connector.close()
+
+    return "DB saved!"
+
 if __name__ == "__main__":
     app.run(debug = True)
