@@ -86,10 +86,10 @@ def handle_message(event):
         db_text_save(send_sql)
 
         # select_sql = u"select item from itemTable where user_id = '"+event.source.user_id+"' and todo_flg = 1"
-        select_sql = u"select item from itemTable where user_id = 'U3deaf92e8d8ff22918974c7febe7d' and todo_flg = 1"
-        f.write('select_sql: '+str(select_sql)+'\n')
-        c = u"select item from itemTable where user_id = '"+event.source.user_id+"' and todo_flg = 1"
-        f.write('c: '+str(c)+'\n')
+        # select_sql = u"select item from itemTable where user_id = 'U3deaf92e8d8ff22918974c7febe7d' and todo_flg = 1"
+        # f.write('select_sql: '+str(select_sql)+'\n')
+        select_sql = u"select item from itemTable where user_id = '"+event.source.user_id+"' and todo_flg = 1"
+        # f.write('c: '+str(c)+'\n')
 
         # select_sql = u"select item from itemTable"
         latest_todos_lists = db_text_select(select_sql)
