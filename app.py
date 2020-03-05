@@ -84,7 +84,7 @@ def handle_message(event):
         if latest_todos == "":
             latest_todos = "なにもなし😄"
         else:
-            latest_todos = "あなたのTODOリストはこれだよ！:D\n==========================\n" + latest_todos + "\n=========================="
+            latest_todos = "あなたのTODOリストはこれだよ！:D\n===================\n" + latest_todos + "\n==================="
         line_bot_api.reply_message(
             event.reply_token,
             [
