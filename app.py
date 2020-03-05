@@ -87,6 +87,7 @@ def handle_message(event):
         latest_todos_lists = db_text_select(select_sql)
         latest_todos_lists = [str(i[0]) for i in latest_todos_lists]
         latest_todos = '\n'.join(latest_todos_lists)
+        latest_todos = "あなたのTODOリストはこれだよ！:D\n" + latest_todos
         line_bot_api.reply_message(
             event.reply_token,
             [
