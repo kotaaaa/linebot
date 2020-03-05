@@ -391,3 +391,8 @@ mysql.connector.errors.InterfaceError: 2003: Can't connect to MySQL server on 'm
 2020-03-03 17:35:23,477 WARNING app.py 31 logging.warning.
 2020-03-03 17:35:23,477 ERROR app.py 32 logging.error.
 2020-03-03 17:35:23,477 CRITICAL app.py 33 logging.critical.
+2020-03-05 18:32:51,894 DEBUG app.py 29 logging.debug.
+2020-03-05 18:32:51,895 INFO app.py 30 logging.info.
+2020-03-05 18:32:51,895 WARNING app.py 31 logging.warning.
+2020-03-05 18:32:51,895 ERROR app.py 32 logging.error.
+2020-03-05 18:32:51,895 CRITICAL app.py 33 logging.critical.
