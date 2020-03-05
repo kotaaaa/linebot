@@ -78,7 +78,7 @@ def callback():
 def handle_message(event):
     tobuy_lists = event.message.text.split('\n')
     for tobuy_list in tobuy_lists:
-        send_sql = u"INSERT INTO itemTable(user_id, item, todo_flg) VALUES('"+event.source.user_id+"','"+tobuy_list+"','1') ON DUPLICATE KEY UPDATE user_id = '"+event.source.user_id+"',item = '"+tobuy_list+"', IF(todo_flg = 1,0,1)"
+        send_sql = u"INSERT INTO itemTable(user_id, item, todo_flg) VALUES('"+event.source.user_id+"','"+tobuy_list+"','1') ON DUPLICATE KEY UPDATE user_id = '"+event.source.user_id+"',item = '"+tobuy_list+"', todo_flg = IF(todo_flg = 1,0,1)"
 
         db_text_save(send_sql)
 
