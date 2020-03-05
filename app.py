@@ -40,8 +40,6 @@ import mysql.connector
 app = Flask(__name__)
 app.config.from_json('development.json', True)
 
-f= open("dev_log/log1", mode='a',encoding="utf-8")
-
 line_bot_api = LineBotApi(app.config['LINECHANNELACCESSTOKEN'])#YOUR_CHANNEL_ACCESS_TOKEN
 handler = WebhookHandler(app.config['LINECHANNELSECRET'])#YOUR_CHANNEL_SECRET
 
@@ -62,10 +60,6 @@ def callback():
     # get request body as text
     body = request.get_data(as_text=True)
     app.logger.info("Request body: " + body)
-
-    #ログをテキストファイルに保存
-    body_ = json.loads(body)
-    f.write(str(body_["events"][0]["message"]["text"])+'\n')#とりあえず，これで，printする形にする．
     # handle webhook body
     try:
         handler.handle(body, signature)
