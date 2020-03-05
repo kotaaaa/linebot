@@ -78,30 +78,19 @@ def callback():
 def handle_message(event):
     tobuy_lists = event.message.text.split('\n')
     for tobuy_list in tobuy_lists:
-        # f.write(str(tobuy_list)+'\n')
-        # f.write(str(event.source)+'\n')
-        # f.write(str(event.source.user_id)+'\n')
-        send_sql = u"INSERT INTO itemTable(user_id, item, todo_flg) VALUES('"+event.source.user_id+"','"+tobuy_list+"','1') ON DUPLICATE KEY UPDATE user_id = '"+event.source.user_id+"',item = '"+tobuy_list+"', todo_flg = 0"
+        send_sql = u"INSERT INTO itemTable(user_id, item, todo_flg) VALUES('"+event.source.user_id+"','"+tobuy_list+"','1') ON DUPLICATE KEY UPDATE user_id = '"+event.source.user_id+"',item = '"+tobuy_list+"', IF(todo_flg = 1,0,1)"
 
         db_text_save(send_sql)
 
-        # select_sql = u"select item from itemTable where user_id = '"+event.source.user_id+"' and todo_flg = 1"
-        # select_sql = u"select item from itemTable where user_id = 'U3deaf92e8d8ff22918974c7febe7d' and todo_flg = 1"
-        # f.write('select_sql: '+str(select_sql)+'\n')
         select_sql = u"select item from itemTable where user_id = '"+event.source.user_id+"' and todo_flg = 1"
-        # f.write('c: '+str(c)+'\n')
 
-        # select_sql = u"select item from itemTable"
         latest_todos_lists = db_text_select(select_sql)
-        f.write('a: '+str(len(latest_todos_lists))+'\n')
         latest_todos_lists = [str(i) for i in latest_todos_lists]
         latest_todos = '\n'.join(latest_todos_lists)
-        f.write('b: '+str(latest_todos)+'\n')
         line_bot_api.reply_message(
             event.reply_token,
             [
             TextSendMessage(text=latest_todos),
-            # TextSendMessage(text=tobuy_list)
             ])
 
 def getConnection():
