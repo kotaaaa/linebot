@@ -76,20 +76,20 @@ def handle_message(event):
 
         db_text_save(send_sql)
 
-        select_sql = u"select item from itemTable where user_id = '"+event.source.user_id+"' and todo_flg = 1"
+    select_sql = u"select item from itemTable where user_id = '"+event.source.user_id+"' and todo_flg = 1"
 
-        latest_todos_lists = db_text_select(select_sql)
-        latest_todos_lists = [str(i[0]) for i in latest_todos_lists]
-        latest_todos = '\n'.join(latest_todos_lists)
-        if latest_todos == "":
-            latest_todos = "なにもなし😄"
-        else:
-            latest_todos = "あなたのTODOリストはこれだよ！:D\n===================\n" + latest_todos + "\n==================="
-        line_bot_api.reply_message(
-            event.reply_token,
-            [
-            TextSendMessage(text=latest_todos),
-            ])
+    latest_todos_lists = db_text_select(select_sql)
+    latest_todos_lists = [str(i[0]) for i in latest_todos_lists]
+    latest_todos = '\n'.join(latest_todos_lists)
+    if latest_todos == "":
+        latest_todos = "なにもなし😄"
+    else:
+        latest_todos = "あなたのTODOリストはこれだよ！:D\n===================\n" + latest_todos + "\n==================="
+    line_bot_api.reply_message(
+        event.reply_token,
+        [
+        TextSendMessage(text=latest_todos),
+        ])
 
 def getConnection():
     return mysql.connector.connect(
