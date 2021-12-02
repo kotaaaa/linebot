@@ -88,11 +88,11 @@ def handle_message(event):
 
 def getConnection():
     return mysql.connector.connect(
-            host="mysql8078.xserver.jp",
-            db="kk1110_linebot",
-            user="kk1110_userlbot",
-            passwd="Kota0108",
-            charset="utf8"
+            app.config["DBHOST"],
+            app.config["DBNAME"],
+            app.config["DBUSER"],
+            app.config["DBPASS"],
+            app.config["DBCHARSET"],
             )
 
 def db_text_save(sql):
