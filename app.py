@@ -92,7 +92,7 @@ def getConnection():
             db=app.config['DBNAME'],
             user=app.config['DBUSER'],
             passwd=app.config['DBPASS'],
-            charset=app.config['DBCHARSET'],
+            charset=app.config['DBCHARSET']
             )
 
 def db_text_save(sql):
