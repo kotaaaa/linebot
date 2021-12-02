@@ -26,15 +26,7 @@ formatter = logging.Formatter('%(asctime)s %(levelname)s %(filename)s %(lineno)d
 fh.setFormatter(formatter)
 
 logger.addHandler(fh)
-logger.debug('logging.debug.')
-logger.info('logging.info.')
-logger.warning('logging.warning.')
-logger.error('logging.error.')
-logger.critical('logging.critical.')
-#ログ出力関係ここまで
 
-import json
-import os
 import mysql.connector
 
 app = Flask(__name__)
