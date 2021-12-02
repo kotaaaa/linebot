@@ -88,11 +88,11 @@ def handle_message(event):
 
 def getConnection():
     return mysql.connector.connect(
-            app.config['DBHOST'],
-            app.config['DBNAME'],
-            app.config['DBUSER'],
-            app.config['DBPASS'],
-            app.config['DBCHARSET'],
+            host=app.config['DBHOST'],
+            db=app.config['DBNAME'],
+            user=app.config['DBUSER'],
+            passwd=app.config['DBPASS'],
+            charset=app.config['DBCHARSET'],
             )
 
 def db_text_save(sql):
