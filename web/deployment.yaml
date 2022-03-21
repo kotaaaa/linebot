@@ -1,0 +1,20 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: linebot-nginx
+spec:
+  selector:
+    matchLabels:
+      app: linebot-nginx
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: linebot-nginx
+    spec:
+      containers:
+        - name: linebot-nginx
+          image: asia-northeast1-docker.pkg.dev/gcp-compute-engine-343613/linebot-repo/linebot-nginx:1.0.0
+          imagePullPolicy: Always
+          ports:
+            - containerPort: 80

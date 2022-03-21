@@ -1,0 +1,20 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: app-server
+spec:
+  selector:
+    matchLabels:
+      app: app-server
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: app-server
+    spec:
+      containers:
+        - name: app-server
+          image: asia-northeast1-docker.pkg.dev/gcp-compute-engine-343613/linebot-repo/app-server:1.0.0
+          imagePullPolicy: Always
+          ports:
+            - containerPort: 5000

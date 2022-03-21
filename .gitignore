@@ -1,3 +1,7 @@
 development.json
 pics
 advance_logging.log
+trash
+uwsgi.log
+app/application.log
+__pycache__/

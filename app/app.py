@@ -18,7 +18,7 @@ logger = logging.getLogger(__name__)
 logger.setLevel(logging.DEBUG)
 
 # ファイルハンドラ
-fh = logging.FileHandler('advance_logging.log')
+fh = logging.FileHandler('application.log')
 fh.setLevel(logging.DEBUG)
 
 # フォーマット
@@ -125,4 +125,4 @@ def db_save():
     return "DB saved!"
 
 if __name__ == "__main__":
-    app.run(debug = True)
+    app.run(host='0.0.0.0')
