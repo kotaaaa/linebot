@@ -10,7 +10,7 @@ services:
     ports:
       - '5000:5000'
     networks:
-      - app-tier
+      - linebot-network
     command: uwsgi --ini /app/uwsgi.ini
 
   web:
@@ -22,10 +22,10 @@ services:
       - ./web/default.conf:/etc/nginx/conf.d/default.conf
       - socket:/tmp
     networks:
-      - app-tier
+      - linebot-network
 
-  mysql_db:
-    container_name: "mysql_db"
+  mysql-db:
+    container_name: "mysql-db"
     image: mysql:5.7
     command: mysqld --character-set-server=utf8 --collation-server=utf8_unicode_ci
     volumes:
@@ -39,10 +39,10 @@ services:
     ports:
       - 3306:3306
     networks:
-      - app-tier
+      - linebot-network
 
 networks:
-  app-tier:
+  linebot-network:
     driver: bridge
 
 volumes:

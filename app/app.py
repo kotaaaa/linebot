@@ -1,4 +1,3 @@
-#!/home/kk1110/.local/share/virtualenvs/linebot-nxOg-56M/bin/python3.8
 # coding:utf-8
 from flask import Flask, request, abort
 
@@ -77,7 +76,7 @@ def handle_message(event):
     latest_todos_lists = [str(i[0]) for i in latest_todos_lists]
     latest_todos = '\n'.join(latest_todos_lists)
     if latest_todos == "":
-        latest_todos = "なにもなし😄"
+        latest_todos = "TODOタスクはありません😄"
     else:
         latest_todos = "あなたのTODOリストはこれだよ！:D\n===================\n" + latest_todos + "\n==================="
     line_bot_api.reply_message(
@@ -116,7 +115,7 @@ def db_text_select(sql):
 def db_save():
     connector = getConnection()
     cursor = connector.cursor()
-    sql = u"insert into testTable values('2','java')"
+    sql = u"insert into testTable values('1','Data inserted')"
     cursor.execute(sql)
     connector.commit()
     cursor.close()
