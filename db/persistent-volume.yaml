@@ -1,0 +1,28 @@
+kind: PersistentVolume
+apiVersion: v1
+metadata:
+  name: mysql-pv-volume # PVの名前
+  labels:
+    type: local
+spec:
+  storageClassName: manual # PVCと一致させる必要がある
+  capacity:
+    storage: 5Gi
+  accessModes:
+    - ReadWriteMany # 複数Node読み書き可
+  hostPath:
+    path: /var/lib/data
+
+---
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+  name: mysql-pv-claim
+spec:
+  # storageClassName=manualのPVを探してマウントする
+  storageClassName: manual
+  accessModes:
+    - ReadWriteMany
+  resources:
+    requests:
+      storage: 5Gi # PVが持っている容量のうち5GBを使用する

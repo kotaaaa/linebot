@@ -1,3 +1,8 @@
-development.json
-pics
-advance_logging.log
+__pycache__/
+.pics
+.trash
+app/application.log
+app/development.json
+db/secret.yaml
+.gitignore
+.env
