@@ -5,12 +5,12 @@ metadata:
   labels:
     app: linebot-nginx
 spec:
-  type: LoadBalancer
+  type: NodePort
   ports:
     - name: http-port
       protocol: TCP
       port: 80
       targetPort: 80
-      nodePort: 30081
+      nodePort: 30082
   selector:
     app: linebot-nginx

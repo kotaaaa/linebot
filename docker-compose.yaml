@@ -31,11 +31,8 @@ services:
     volumes:
       - db_volume:/var/lib/mysql
       - ./db/initdb.d:/docker-entrypoint-initdb.d
-    environment: # Set up mysql database name and password
-      MYSQL_ROOT_PASSWORD: password
-      MYSQL_DATABASE: linebot
-      MYSQL_USER: kota1110
-      MYSQL_PASSWORD: Kota0108
+    # Set up mysql database name and password
+    env_file: ./.env 
     ports:
       - 3306:3306
     networks:

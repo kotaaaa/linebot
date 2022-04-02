@@ -12,7 +12,6 @@ spec:
     - ReadWriteMany # 複数Node読み書き可
   hostPath:
     path: /var/lib/data
-    # path: /mnt/data
 
 ---
 apiVersion: v1
