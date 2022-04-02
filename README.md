@@ -1,23 +1,30 @@
-# Line TODO Management Bot
+# TODO Management LineBot Application
 
 ## Overview
 
-- Add your todo task.
-- Delete your completed task if you type the task's name.
-- Delete all your task if you type "クリア" or "clear"
+- TODO Management Application with LineBot
+- If you type completed taskname, the task will be deleted.
+- TO delete all your task, please type "クリア" or "clear"
 
 ### Techs
 
-- Python 3.8.1
-- Flask
-- xserver (Hosting server)
-- mysql
+| Tech       | Version  |
+| ---------- | -------- |
+| Python     | 3.9.7    |
+| Flask      | 1.1.4    |
+| Kubernetes | 1.23.5   |
+| Docker     | 20.10.12 |
+| Nginx      | latest   |
+| Mysql      | 5.7      |
 
 ### How to run with docker-compose
 
+- You can run this application on your local with docker-compose.
+- Note: Running on local cannot prepare SSL configuration, so you cannot set localhost to linebot's callback method. You can just check how this app works.
+
 ```
 $ pwd
-/path/your/dir/linebot/
+/path/to/dir/linebot/
 # Build & Run containers
 $ docker-compose up
 # Stop & Delete containers
@@ -27,13 +34,54 @@ $ docker-compose down --rmi all --volumes --remove-orphans
 ### How to run on GKE
 
 ```
+
+# Create your artifacts repositories on GCP.
+$ gcloud artifacts repositories create linebot-repo \
+    --project=gcp-compute-engine-343613 \
+    --repository-format=docker \
+    --location=asia-northeast1 \
+    --description="Docker repository"
+
+# Create your own cluster.
+$ gcloud container clusters create linebot-gke --num-nodes 1 --zone asia-northeast1
+
+# Build image and deploy
 $ pwd
-/path/your/dir/linebot/
+/path/to/dir/linebot/
+
+# Flask App image build and push
+$ gcloud builds submit \
+    --tag asia-northeast1-docker.pkg.dev/gcp-compute-engine-343613/linebot-repo/app-server:1.0.0 ./app/
+# Nginx container image build and push
+$ gcloud builds submit \
+    --tag asia-northeast1-docker.pkg.dev/gcp-compute-engine-343613/linebot-repo/linebot-nginx:1.0.0 ./web/
+
+# Apply each k8s objects
 # Build & Run containers
-$ kubectl apply -f app/deployment.yaml -f app/service.yaml -f web/deployment.yaml -f web/service.yaml
-# Delete service, deployment
-$ kubectl service deployment app-server linebot-nginx
-$ kubectl delete deployment app-server linebot-nginx
+kubectl apply \
+    -f app/deployment.yaml \
+    -f app/service.yaml \
+    -f web/deployment.yaml \
+    -f web/service.yaml  \
+    -f db/deployment.yaml  \
+    -f db/service.yaml  \
+    -f db/secret.yaml  \
+    -f db/configmap.yaml \
+    -f db/persistent-volume.yaml \
+    -f ingress/managed-cert.yaml \
+    -f ingress/managed-cert-ingress.yaml
+```
+
+# Other things you have to do for SSL configration
+
+- Prepare your own domain(like Google Domain)
+- Reserving a static external IP address [link](https://cloud.google.com/compute/docs/ip-addresses/reserve-static-external-ip-address)
+
+# When you are enough to run..
+
+```
+# Make sure delete cluster not to be billed!
+$ gcloud container clusters delete linebot-gke --zone asia-northeast1
 ```
 
 ### Sample Talk
