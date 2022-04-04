@@ -86,7 +86,7 @@ kubectl apply \
 
 ```
 # Make sure delete cluster not to be billed!
-$ gcloud container clusters delete linebot-gke --zone asia-northeast1
+$ gcloud container clusters delete linebot-gke --zone asia-northeast1-a
 ```
 
 ## Sample Talk
