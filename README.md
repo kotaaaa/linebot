@@ -14,7 +14,7 @@
 | Flask      | 1.1.4    |
 | Kubernetes | 1.23.5   |
 | Docker     | 20.10.12 |
-| Nginx      | latest   |
+| Nginx      | 1.21.6   |
 | Mysql      | 5.7      |
 
 ## System Architecture
@@ -48,7 +48,7 @@ $ gcloud artifacts repositories create linebot-repo \
     --description="Docker repository"
 
 # Create your own cluster.
-$ gcloud container clusters create linebot-gke --num-nodes 1 --zone asia-northeast1
+$ gcloud container clusters create linebot-gke --num-nodes 3 --zone asia-northeast1
 
 # Build image and deploy
 $ pwd
