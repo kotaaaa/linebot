@@ -1,5 +1,7 @@
 # TODO Management LineBot Application
 
+##### Tech blog about this project is [here](https://kk1110.netlify.app/blog/linebot)
+
 ## Overview
 
 - TODO Management Application with LineBot
